@@ -19,6 +19,7 @@ import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
 const Navlinks = [
   { title: "Dashboard", to: "/", icon: <HomeOutlinedIcon /> },
+  { title: "Data" },
   { title: "Manage Team", to: "/team", icon: <PeopleOutlinedIcon /> },
   {
     title: "Contact Information",
@@ -30,9 +31,11 @@ const Navlinks = [
     to: "/invoices",
     icon: <ReceiptOutlinedIcon />,
   },
+  { title: "Pages" },
   { title: "Profile Form", to: "/form", icon: <PersonOutlinedIcon /> },
   { title: "Calendar", to: "/calendar", icon: <CalendarTodayOutlinedIcon /> },
   { title: "FAQ Page", to: "/faq", icon: <HelpOutlinedIcon /> },
+  { title: "Charts" },
   { title: "Bar Chart", to: "/bar", icon: <BarChartOutlinedIcon /> },
   { title: "Pie Chart", to: "/pie", icon: <PieChartOutlinedIcon /> },
   { title: "Line Chart", to: "/line", icon: <TimelineOutlinedIcon /> },
@@ -45,19 +48,33 @@ const SidebarLinks = () => {
 
   return (
     <Box>
-      {Navlinks.map((links) => (
-        <MenuItem
-          key={links.title}
-          component={<Link to={links.to} />}
-          title={links.title}
-          icon={links.icon}
-          style={{
-            color: colors.grey[100],
-          }}
-        >
-          <Typography>{links.title}</Typography>
-        </MenuItem>
-      ))}
+      {Navlinks.map((links) =>
+        links.title === "Data" ||
+        links.title === "Pages" ||
+        links.title === "Charts" ? (
+          <Typography
+            key={links.title}
+            style={{
+              color: colors.grey[100],
+              marginLeft: "16px",
+            }}
+          >
+            {links.title}
+          </Typography>
+        ) : (
+          <MenuItem
+            key={links.title}
+            component={<Link to={links.to} />}
+            title={links.title}
+            icon={links.icon}
+            style={{
+              color: colors.grey[100],
+            }}
+          >
+            <Typography>{links.title}</Typography>
+          </MenuItem>
+        )
+      )}
     </Box>
   );
 };

@@ -21,14 +21,13 @@ const Sidebar = () => {
         style={{ borderRight: "0", height: "100%" }}
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
-            backgroundColor: `colors.primary[400] !important`,
+            backgroundColor: `${colors.primary[400]} !important`,
           },
           [`.${menuClasses.button}:hover`]: {
-            backgroundColor: `colors.primary[400] !important`,
+            backgroundColor: `${colors.primary[400]} !important`,
+            color: "#6870fa !important",
           },
-
-          [`.${menuClasses.button}:hover`]: {
-            backgroundColor: colors.primary[400],
+          "& .ps-menu-button:active": {
             color: "#6870fa !important",
           },
         }}

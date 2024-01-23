@@ -6,7 +6,7 @@ import { mockDataContacts } from "../../data/mockData";
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
-const Team = () => {
+const Contacts = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -60,8 +60,8 @@ const Team = () => {
         subtitle="List of Contacts for Future Reference"
       />
       <Box
-        m="40px 0 0 0"
-        height="75vh"
+        m="10px 0 0 0"
+        height="70vh"
         sx={{
           "& .MuiDataGrid-root": {
             border: "none",
@@ -84,11 +84,21 @@ const Team = () => {
             backgroundColor: colors.blueAccent[700],
           },
           "& .MuiDataGrid-toolbarContainer .MuiButton-text": {
-            color: "#fff !important",
+            color: `${colors.grey[100]} !important`,
           },
         }}
       >
         <DataGrid
+          {...mockDataContacts}
+          initialState={{
+            ...mockDataContacts.initialState,
+            pagination: {
+              ...mockDataContacts.initialState?.pagination,
+              paginationModel: {
+                pageSize: 6,
+              },
+            },
+          }}
           rows={mockDataContacts}
           columns={columns}
           slots={{ toolbar: GridToolbar }}
@@ -98,4 +108,4 @@ const Team = () => {
   );
 };
 
-export default Team;
+export default Contacts;

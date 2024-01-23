@@ -6,15 +6,15 @@ import Sidebar from "./Pages/global/Sidebar";
 
 import Dashboard from "./Pages/dashboard";
 import Team from "./Pages/Team";
-// import Invoices from "./Pages/invoices";
+import Invoices from "./Pages/invoice";
 import Contacts from "./Pages/contacts";
-// import Bar from "./Pages/bar";
-// import Form from "./Pages/form";
-// import Line from "./Pages/line";
-// import Pie from "./Pages/pie";
-// import FAQ from "./Pages/faq";
+import Bar from "./Pages/bar";
+import Form from "./Pages/form";
+import Line from "./Pages/line";
+import Pie from "./Pages/pie";
+import FAQ from "./Pages/faq";
 // import Geography from "./Pages/geography";
-// import Calendar from "./Pages/calendar";
+import Calendar from "./Pages/calendar";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -30,12 +30,13 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/team" element={<Team />} />
               <Route path="/contacts" element={<Contacts />} />
-              {/* <Route path="/invoices" element={<Invoices />} /> */}
-              {/* <Route path="/form" element={<Form />} /> */}
-              {/* <Route path="/bar" element={<Bar />} /> */}
-              {/* <Route path="/pie" element={<Pie />} /> */}
-              {/* <Route path="/line" element={<Line />} /> */}
-              {/* <Route path="/faq" element={<FAQ />} /> */}
+              <Route path="/invoices" element={<Invoices />} />
+              <Route path="/form" element={<Form />} />
+              <Route path="/calendar" element={<Calendar />} />
+              <Route path="/bar" element={<Bar />} />
+              <Route path="/pie" element={<Pie />} />
+              <Route path="/line" element={<Line />} />
+              <Route path="/faq" element={<FAQ />} />
               {/* <Route path="/geography" element={<Geography />} /> */}
             </Routes>
           </main>
