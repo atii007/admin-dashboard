@@ -7,7 +7,7 @@ const Pie = () => {
   return (
     <Box m="20px">
       <Header title="Pie Chart" subtitle="Simple Pie Chart showing stats" />
-      <Box height="70vh">
+      <Box height="70vh" mt="20px">
         <PieCharts />
       </Box>
     </Box>

@@ -14,11 +14,11 @@ const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <Box height="100%">
+    <Box>
       <ProSidebar
         collapsed={isCollapsed}
         backgroundColor={colors.primary[400]}
-        style={{ borderRight: "0", height: "100%" }}
+        style={{ borderRight: "0", height: "150vh" }}
         rootStyles={{
           [`.${sidebarClasses.container}`]: {
             backgroundColor: `${colors.primary[400]} !important`,
@@ -56,12 +56,12 @@ const Sidebar = () => {
           </MenuItem>
 
           {!isCollapsed && (
-            <Box mb="25px">
+            <Box mb="5px">
               <Box display="flex" justifyContent="center" alignItems="center">
                 <img
                   alt="profile-user"
-                  width="100px"
-                  height="100px"
+                  width="80px"
+                  height="80px"
                   src={`../../assets/user.jpg`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />

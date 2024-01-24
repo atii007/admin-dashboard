@@ -9,7 +9,7 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
+
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
@@ -33,7 +33,7 @@ const Navlinks = [
   },
   { title: "Pages" },
   { title: "Profile Form", to: "/form", icon: <PersonOutlinedIcon /> },
-  { title: "Calendar", to: "/calendar", icon: <CalendarTodayOutlinedIcon /> },
+
   { title: "FAQ Page", to: "/faq", icon: <HelpOutlinedIcon /> },
   { title: "Charts" },
   { title: "Bar Chart", to: "/bar", icon: <BarChartOutlinedIcon /> },
@@ -57,6 +57,7 @@ const SidebarLinks = () => {
             style={{
               color: colors.grey[100],
               marginLeft: "16px",
+              padding: "20px",
             }}
           >
             {links.title}
