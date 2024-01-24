@@ -62,7 +62,7 @@ const Sidebar = () => {
                   alt="profile-user"
                   width="80px"
                   height="80px"
-                  src={`../../assets/user.jpg`}
+                  src={`../../assets/user1.png`}
                   style={{ cursor: "pointer", borderRadius: "50%" }}
                 />
               </Box>
@@ -73,7 +73,7 @@ const Sidebar = () => {
                   fontWeight="bold"
                   sx={{ m: "10px 0 0 0" }}
                 >
-                  Jane Doe
+                  Atif Razzaq
                 </Typography>
                 <Typography variant="h5" color={colors.greenAccent[500]}>
                   Admin
