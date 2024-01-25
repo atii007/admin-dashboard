@@ -3,14 +3,17 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import axios from "axios";
 
 const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
   contact: "",
-  address1: "",
-  address2: "",
+  address: "",
+  city: "",
+  age: 0,
+  zip: 0,
 };
 
 const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
@@ -22,15 +25,19 @@ const userSchema = Yup.object().shape({
   contact: Yup.string()
     .matches(phoneRegExp, "Invalid Phone Number Format")
     .required("Required"),
-  address1: Yup.string().required("Required"),
-  address2: Yup.string().required("Required"),
+  address: Yup.string().required("Required"),
+  city: Yup.string().required("Required"),
+  age: Yup.number().required("Required"),
+  zip: Yup.number().required("Required"),
 });
 
 const Form = () => {
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
-    console.log(values);
+    axios
+      .post("https://65b219a69bfb12f6eafcd872.mockapi.io/crud-form", values)
+      .then((res) => console.log(res));
   };
 
   return (
@@ -122,13 +129,13 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 1"
+                label="Address"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address1}
-                name="address1"
-                error={!!touched.address1 && !!errors.address1}
-                helperText={touched.address1 && errors.address1}
+                value={values.address}
+                name="address"
+                error={!!touched.address && !!errors.address}
+                helperText={touched.address && errors.address}
                 sx={{ gridColumn: "span 2" }}
               />
 
@@ -136,13 +143,41 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address 2"
+                label="City"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address2}
-                name="address2"
-                error={!!touched.address2 && !!errors.address2}
-                helperText={touched.address2 && errors.address2}
+                value={values.city}
+                name="city"
+                error={!!touched.city && !!errors.city}
+                helperText={touched.city && errors.city}
+                sx={{ gridColumn: "span 2" }}
+              />
+
+              <TextField
+                fullWidth
+                variant="filled"
+                type="number"
+                label="Age"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.age}
+                name="age"
+                error={!!touched.age && !!errors.age}
+                helperText={touched.age && errors.age}
+                sx={{ gridColumn: "span 2" }}
+              />
+
+              <TextField
+                fullWidth
+                variant="filled"
+                type="text"
+                label="Zip"
+                onBlur={handleBlur}
+                onChange={handleChange}
+                value={values.zip}
+                name="zip"
+                error={!!touched.zip && !!errors.zip}
+                helperText={touched.zip && errors.zip}
                 sx={{ gridColumn: "span 2" }}
               />
             </Box>

@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
-import { mockDataContacts } from "../../data/mockData";
+
+import axios from "axios";
 
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
 
 const Contacts = () => {
+  const [myData, setMyData] = useState([]);
+  useEffect(() => {
+    axios
+      .get("https://65b219a69bfb12f6eafcd872.mockapi.io/crud-form")
+      .then((res) => setMyData(res.data));
+  }, []);
+
+  const rows = myData.map((user) => {
+    return {
+      id: user.id,
+      name: [user.firstName, user.lastName].join(" "),
+      age: user.age,
+      email: user.email,
+      contact: user.contact,
+      zip: user.zip,
+      address: user.address,
+      city: user.city,
+    };
+  });
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
-    { field: "registrarId", headerName: "Registrar ID", flex: 0.5 },
     {
       field: "name",
       headerName: "Name",
@@ -27,7 +47,7 @@ const Contacts = () => {
       align: "left",
     },
     {
-      field: "phone",
+      field: "contact",
       headerName: "Phone Number",
       flex: 1,
     },
@@ -47,7 +67,7 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "zipCode",
+      field: "zip",
       headerName: "ZipCode",
       flex: 1,
     },
@@ -89,17 +109,17 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          {...mockDataContacts}
+          {...myData}
           initialState={{
-            ...mockDataContacts.initialState,
+            ...myData.initialState,
             pagination: {
-              ...mockDataContacts.initialState?.pagination,
+              ...myData.initialState?.pagination,
               paginationModel: {
                 pageSize: 6,
               },
             },
           }}
-          rows={mockDataContacts}
+          rows={rows}
           columns={columns}
           slots={{ toolbar: GridToolbar }}
         />
