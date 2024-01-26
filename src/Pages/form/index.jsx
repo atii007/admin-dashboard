@@ -3,6 +3,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import Header from "../../components/Header";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const initialValues = {
@@ -10,10 +11,9 @@ const initialValues = {
   lastName: "",
   email: "",
   contact: "",
-  address: "",
-  city: "",
-  age: 0,
-  zip: 0,
+  address: { area: "", city: "" },
+  age: undefined,
+  zip: undefined,
 };
 
 const phoneRegExp = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
@@ -25,19 +25,25 @@ const userSchema = Yup.object().shape({
   contact: Yup.string()
     .matches(phoneRegExp, "Invalid Phone Number Format")
     .required("Required"),
-  address: Yup.string().required("Required"),
-  city: Yup.string().required("Required"),
+  address: Yup.object().shape({
+    area: Yup.string().required("Required"),
+    city: Yup.string().required("Required"),
+  }),
   age: Yup.number().required("Required"),
   zip: Yup.number().required("Required"),
 });
 
 const Form = () => {
+  const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
     axios
-      .post("https://65b219a69bfb12f6eafcd872.mockapi.io/crud-form", values)
+      .post("http://localhost:3000/users", values)
       .then((res) => console.log(res));
+
+    window.alert("User Added Successfully");
+    navigate("/team");
   };
 
   return (
@@ -129,13 +135,13 @@ const Form = () => {
                 fullWidth
                 variant="filled"
                 type="text"
-                label="Address"
+                label="Area"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.address}
-                name="address"
-                error={!!touched.address && !!errors.address}
-                helperText={touched.address && errors.address}
+                value={values.address.area}
+                name="address.area"
+                error={!!touched.address?.area && !!errors.address?.area}
+                helperText={touched.address?.area && errors.address?.area}
                 sx={{ gridColumn: "span 2" }}
               />
 
@@ -146,10 +152,10 @@ const Form = () => {
                 label="City"
                 onBlur={handleBlur}
                 onChange={handleChange}
-                value={values.city}
-                name="city"
-                error={!!touched.city && !!errors.city}
-                helperText={touched.city && errors.city}
+                value={values.address.city}
+                name="address.city"
+                error={!!touched.address?.city && !!errors.address?.city}
+                helperText={touched.address?.city && errors.address?.city}
                 sx={{ gridColumn: "span 2" }}
               />
 
@@ -170,7 +176,7 @@ const Form = () => {
               <TextField
                 fullWidth
                 variant="filled"
-                type="text"
+                type="number"
                 label="Zip"
                 onBlur={handleBlur}
                 onChange={handleChange}

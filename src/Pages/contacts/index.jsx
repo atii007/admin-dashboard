@@ -9,10 +9,13 @@ import Header from "../../components/Header";
 
 const Contacts = () => {
   const [myData, setMyData] = useState([]);
+
+  const getData = () => {
+    axios.get("http://localhost:3000/users").then((res) => setMyData(res.data));
+  };
+
   useEffect(() => {
-    axios
-      .get("https://65b219a69bfb12f6eafcd872.mockapi.io/crud-form")
-      .then((res) => setMyData(res.data));
+    getData();
   }, []);
 
   const rows = myData.map((user) => {
@@ -23,8 +26,8 @@ const Contacts = () => {
       email: user.email,
       contact: user.contact,
       zip: user.zip,
-      address: user.address,
-      city: user.city,
+      area: user.address.area,
+      city: user.address.city,
     };
   });
 
@@ -57,7 +60,7 @@ const Contacts = () => {
       flex: 1,
     },
     {
-      field: "address",
+      field: "area",
       headerName: "Address",
       flex: 1,
     },
@@ -109,16 +112,6 @@ const Contacts = () => {
         }}
       >
         <DataGrid
-          {...myData}
-          initialState={{
-            ...myData.initialState,
-            pagination: {
-              ...myData.initialState?.pagination,
-              paginationModel: {
-                pageSize: 6,
-              },
-            },
-          }}
           rows={rows}
           columns={columns}
           slots={{ toolbar: GridToolbar }}

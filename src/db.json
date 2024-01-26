@@ -1,0 +1,56 @@
+{
+  "users": [
+    {
+      "id": "9a0e",
+      "firstName": "my first name",
+      "lastName": "my last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "full street address",
+        "city": "city name"
+      },
+      "age": 30,
+      "zip": "33333"
+    },
+    {
+      "id": "4bd2",
+      "firstName": "my first name",
+      "lastName": "my last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "full street address",
+        "city": "Bahawalpur"
+      },
+      "age": 30,
+      "zip": 63100
+    },
+    {
+      "id": "a005",
+      "firstName": "my first name",
+      "lastName": "my last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "full street address",
+        "city": "city name"
+      },
+      "age": 30,
+      "zip": 23112
+    },
+    {
+      "id": "57ec",
+      "firstName": "Atif",
+      "lastName": "Razzaq",
+      "email": "me@mydomain.com",
+      "contact": "0932132132",
+      "address": {
+        "area": "full street address",
+        "city": "Bahawalpur"
+      },
+      "age": 25,
+      "zip": 98432
+    }
+  ]
+}

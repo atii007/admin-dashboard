@@ -77,21 +77,7 @@ const Invoices = () => {
           },
         }}
       >
-        <DataGrid
-          {...mockDataInvoices}
-          initialState={{
-            ...mockDataInvoices.initialState,
-            pagination: {
-              ...mockDataInvoices.initialState?.pagination,
-              paginationModel: {
-                pageSize: 6,
-              },
-            },
-          }}
-          rows={mockDataInvoices}
-          columns={columns}
-          checkboxSelection
-        />
+        <DataGrid rows={mockDataInvoices} columns={columns} checkboxSelection />
       </Box>
     </Box>
   );
