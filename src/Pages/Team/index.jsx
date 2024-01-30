@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Typography, useTheme } from "@mui/material";
+import { Box, useTheme, Button, Modal } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -7,12 +7,35 @@ import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import axios from "axios";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
+import PersonIcon from "@mui/icons-material/Person";
+import { Link } from "react-router-dom";
+import FormHandling from "../../components/Form";
 
 const Team = () => {
+  const [formData, setFormData] = useState();
+  const [edit, setEdit] = useState(false);
   const [data, setData] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  // const navigate = useNavigate();
 
   const getData = () => {
     axios.get("http://localhost:3000/users").then((res) => setData(res.data));
+  };
+
+  const handleDeletion = (userId) => {
+    if (userId) {
+      axios
+        .delete(`http://localhost:3000/users/${userId}`, { data: data })
+        .then(() => getData());
+    }
+  };
+
+  const handleEdit = async (userId) => {
+    await axios
+      .get(`http://localhost:3000/users/${userId}`)
+      .then((res) => setFormData(res.data));
+    setModalOpen(true);
+    setEdit(true);
   };
 
   useEffect(() => {
@@ -61,39 +84,47 @@ const Team = () => {
       field: "access",
       headerName: "Manage",
       flex: 1,
-      renderCell: () => {
+      renderCell: (params) => {
+        const handleDeleteClick = () => handleDeletion(params.id);
+        const handleEditClick = () => handleEdit(params.id);
         return (
           <Box display="flex" justifyContent="center" alignItems="center">
-            <Box
-              width="60%"
-              display="flex"
-              p="8px"
-              m="5px"
-              justifyContent="center"
-              backgroundColor={colors.greenAccent[600]}
-              borderRadius="4px"
-              sx={{ cursor: "pointer" }}
-            >
-              <EditOutlinedIcon />
-              <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+            <Box display="flex" justifyContent="center">
+              <Button
+                sx={{
+                  cursor: "pointer",
+                  color: colors.grey[100],
+                  backgroundColor: colors.greenAccent[600],
+                  borderRadius: "4px",
+                  p: "8px",
+                  m: "5px",
+                }}
+                startIcon={
+                  <EditOutlinedIcon sx={{ color: colors.grey[100] }} />
+                }
+                onClick={handleEditClick}
+              >
                 Edit
-              </Typography>
+              </Button>
             </Box>
 
-            <Box
-              width="60%"
-              p="8px"
-              m="5px"
-              display="flex"
-              justifyContent="center"
-              backgroundColor={colors.greenAccent[600]}
-              borderRadius="4px"
-              sx={{ cursor: "pointer" }}
-            >
-              <DeleteOutlinedIcon />
-              <Typography color={colors.grey[100]} sx={{ ml: "5px" }}>
+            <Box display="flex" justifyContent="center">
+              <Button
+                sx={{
+                  cursor: "pointer",
+                  color: colors.grey[100],
+                  backgroundColor: colors.greenAccent[600],
+                  borderRadius: "4px",
+                  p: "8px",
+                  m: "5px",
+                }}
+                startIcon={
+                  <DeleteOutlinedIcon sx={{ color: colors.grey[100] }} />
+                }
+                onClick={handleDeleteClick}
+              >
                 Delete
-              </Typography>
+              </Button>
             </Box>
           </Box>
         );
@@ -103,7 +134,50 @@ const Team = () => {
 
   return (
     <Box m="20px">
-      <Header title="Team" subtitle="Managing the Team Memebers" />
+      <Modal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        aria-labelledby="edit-modal"
+        aria-describedby="edit-modal-description"
+      >
+        <Box
+          sx={{
+            width: "60%",
+            m: "auto",
+            mt: "40px",
+            p: "35px",
+            backgroundColor: colors.primary[400],
+            borderRadius: "4px",
+          }}
+        >
+          <FormHandling formData={formData} edit={edit} />
+        </Box>
+      </Modal>
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <Header title="Team" subtitle="Manage Team"></Header>
+
+        <Box>
+          <Link to="/form">
+            <Button
+              sx={{
+                backgroundColor: colors.blueAccent[700],
+                color: colors.grey[100],
+                fontSize: "14px",
+                fontWeight: "bold",
+                p: "10px 20px",
+              }}
+            >
+              <PersonIcon
+                sx={{
+                  mr: "10px",
+                }}
+              />
+              Add Team Member
+            </Button>
+          </Link>
+        </Box>
+      </Box>
+
       <Box
         m="10px 0 0 0"
         height="70vh"
