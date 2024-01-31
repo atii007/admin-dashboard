@@ -12,8 +12,9 @@ import { Link } from "react-router-dom";
 import FormHandling from "../../components/Form";
 
 const Team = () => {
-  const [formData, setFormData] = useState();
+  const [formData, setFormData] = useState([]);
   const [edit, setEdit] = useState(false);
+  const [id, setId] = useState();
   const [data, setData] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   // const navigate = useNavigate();
@@ -34,9 +35,12 @@ const Team = () => {
     await axios
       .get(`http://localhost:3000/users/${userId}`)
       .then((res) => setFormData(res.data));
+
     setModalOpen(true);
     setEdit(true);
+    setId(userId);
   };
+  // console.log("Form Data", formData);
 
   useEffect(() => {
     getData();
@@ -136,7 +140,10 @@ const Team = () => {
     <Box m="20px">
       <Modal
         open={modalOpen}
-        onClose={() => setModalOpen(false)}
+        onClose={() => {
+          setModalOpen(false);
+          setEdit(false);
+        }}
         aria-labelledby="edit-modal"
         aria-describedby="edit-modal-description"
       >
@@ -148,9 +155,16 @@ const Team = () => {
             p: "35px",
             backgroundColor: colors.primary[400],
             borderRadius: "4px",
+            boxShadow: `0 1px 2px 0 ${colors.blueAccent[600]}, 0 2px 7px 0 ${colors.blueAccent[600]}`,
           }}
         >
-          <FormHandling formData={formData} edit={edit} />
+          <FormHandling
+            setModalOpen={setModalOpen}
+            setFormData={setFormData}
+            formData={formData}
+            edit={edit}
+            id={id}
+          />
         </Box>
       </Modal>
       <Box display="flex" justifyContent="space-between" alignItems="center">

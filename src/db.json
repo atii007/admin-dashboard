@@ -1,43 +1,71 @@
 {
   "users": [
     {
-      "id": "6d34",
-      "firstName": "Awais",
-      "lastName": "Azhar",
-      "email": "awais@gmail.com",
+      "id": "c085",
+      "firstName": "Atif",
+      "lastName": "Razzaq",
+      "email": "test@test.com",
       "contact": "(123) 456-7890",
       "address": {
-        "area": "Maharwali",
-        "city": "Bahawalnagar"
+        "area": "Noor Colony",
+        "city": "Bahawalpur"
       },
-      "age": 24,
-      "zip": 65000
+      "age": 23,
+      "zip": 63100
     },
     {
-      "id": "c8f3",
-      "firstName": "first name",
-      "lastName": "last name",
-      "email": "me@mydomain.com",
+      "id": "8453",
+      "firstName": "Muhammad",
+      "lastName": "Mudassir",
+      "email": "demo@gmail.com",
       "contact": "(123) 456-7890",
       "address": {
         "area": "fulladdress",
         "city": "city"
       },
+      "age": "25",
+      "zip": "65321",
+      "address.area": "fulladdres",
+      "address.city": "cit"
+    },
+    {
+      "id": "baf1",
+      "firstName": "Muhammad",
+      "lastName": "Amir",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "Colony",
+        "city": "Layyah"
+      },
       "age": 30,
       "zip": 12345
     },
     {
-      "id": "8dcd",
-      "firstName": "first name",
-      "lastName": "last name",
-      "email": "me@mydomain.com",
-      "contact": "(123) 456-7890",
+      "id": "abec",
+      "firstName": "Muhammaf",
+      "lastName": "Ibrahim",
+      "email": "meon@mydomain.com",
+      "contact": "(123) 456-0987",
       "address": {
-        "area": "fulladdress",
-        "city": "city"
+        "area": "Sunflower",
+        "city": "Lahore"
       },
-      "age": 30,
-      "zip": 12345
+      "age": "28",
+      "zip": "98381"
+    },
+    {
+      "id": "8265",
+      "firstName": "Muhammad",
+      "lastName": "Abbad",
+      "email": "moon@mydomain.com",
+      "contact": "(123) 456-7887348",
+      "address": {
+        "area": "Society",
+        "city": "Bahawalpur"
+      },
+      "age": "24",
+      "zip": "43654"
     }
   ]
 }
