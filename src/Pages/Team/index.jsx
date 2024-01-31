@@ -44,7 +44,7 @@ const Team = () => {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [data]);
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);

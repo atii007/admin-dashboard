@@ -89,7 +89,6 @@ const FormHandling = ({ setModalOpen, setFormData, edit, id, formData }) => {
       .then((res) => console.log(res.data));
 
     setModalOpen(false);
-    navigate("/contacts");
   };
 
   const handleInputChange = (e) => {
