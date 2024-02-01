@@ -4,7 +4,10 @@ import axios from "axios";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Formik } from "formik";
 import { Box, Button, TextField } from "@mui/material";
+
 import * as Yup from "yup";
+
+import { toast } from "react-toastify";
 
 const fields = [
   {
@@ -56,78 +59,58 @@ const userSchema = Yup.object().shape({
   zip: Yup.number().required("Required"),
 });
 
-const FormHandling = ({ setModalOpen, setFormData, edit, id, formData }) => {
-  const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    contact: "",
-    address: { area: "", city: "" },
-    age: undefined,
-    zip: undefined,
+const FormHandling = ({ setModalOpen, edit, id, formData }) => {
+  const initialFormData = {
+    firstName: formData?.firstName ?? "",
+    lastName: formData?.lastName ?? "",
+    email: formData?.email ?? "",
+    contact: formData?.contact ?? "",
+    address: {
+      area: formData.address?.area ?? "",
+      city: formData.address?.city ?? "",
+    },
+    age: formData?.age ?? null,
+    zip: formData?.zip ?? null,
   };
 
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
   const handleFormSubmit = (values) => {
-    axios
-      .post("http://localhost:3000/users", values)
-      .then((res) => console.log(res));
+    if (edit) {
+      axios
+        .put(`http://localhost:3000/users/${id}`, values)
+        .then((res) => console.log(res.data));
 
-    window.alert("User Added Successfully");
-    navigate("/team");
-  };
+      toast.success("User Data Updated Successfully!");
 
-  console.log(formData);
+      setModalOpen(false);
+    } else {
+      //when creating new data
+      axios
+        .post("http://localhost:3000/users", values)
+        .then((res) => console.log(res));
 
-  const updateForm = (event, values) => {
-    event.preventDefault();
-    console.log(formData);
-    axios
-      .put(`http://localhost:3000/users/${id}`, formData)
-      .then((res) => console.log(res.data));
-
-    setModalOpen(false);
-  };
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormData((formData) => {
-      if (name.startsWith("address.")) {
-        const nestedField = name.split(".")[1];
-        return {
-          ...formData,
-          address: {
-            ...formData.address,
-            [nestedField]: value,
-          },
-        };
-      } else {
-        return {
-          ...formData,
-          [name]: value,
-        };
-      }
-    });
+      toast.success("User Added Successfully");
+      navigate("/team");
+    }
   };
 
   return (
     <Formik
-      onSubmit={handleFormSubmit}
-      initialValues={initialValues}
+      initialValues={initialFormData}
       validationSchema={userSchema}
+      onSubmit={handleFormSubmit}
     >
       {({
-        values,
-        errors,
-        touched,
-        handleBlur,
-        handleChange,
         handleSubmit,
+        handleChange,
+        handleBlur,
+        values,
+        touched,
+        errors,
       }) => (
-        <form onSubmit={edit ? updateForm : handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <Box
             display="grid"
             gap="30px"
@@ -139,55 +122,52 @@ const FormHandling = ({ setModalOpen, setFormData, edit, id, formData }) => {
               },
             }}
           >
-            {fields.map((input) => (
+            {fields.map((fieldData) => (
               <TextField
-                key={input.name}
+                key={fieldData.name}
                 fullWidth
+                type={fieldData.type}
                 variant="filled"
-                type={input.type}
-                label={input.label}
+                label={fieldData.label}
                 onBlur={handleBlur}
-                onChange={edit ? handleInputChange : handleChange}
-                value={edit ? formData[input.name] : values[input.name]}
-                name={input.name}
-                error={!edit && !!touched[input.name] && !!errors[input.name]}
-                helperText={!edit && touched[input.name] && errors[input.name]}
+                name={fieldData.name}
+                onChange={handleChange}
                 sx={{ gridColumn: "span 2" }}
+                error={!!touched[fieldData.name] && !!errors[fieldData.name]}
+                helperText={touched[fieldData.name] && errors[fieldData.name]}
+                value={values[fieldData.name]}
               />
             ))}
 
             <TextField
               fullWidth
-              variant="filled"
               type="text"
+              variant="filled"
               label="Area"
               onBlur={handleBlur}
-              onChange={edit ? handleInputChange : handleChange}
-              value={edit ? formData.address.area : values.address.area}
               name="address.area"
-              error={!edit && !!touched.address?.area && !!errors.address?.area}
-              helperText={
-                !edit && touched.address?.area && errors.address?.area
-              }
+              onChange={handleChange}
               sx={{ gridColumn: "span 2" }}
+              error={!!touched.address?.area && !!errors.address?.area}
+              helperText={touched.address?.area && errors.address?.area}
+              value={values.address.area}
             />
 
             <TextField
               fullWidth
-              variant="filled"
               type="text"
+              variant="filled"
               label="City"
               onBlur={handleBlur}
-              onChange={edit ? handleInputChange : handleChange}
-              value={edit ? formData.address.city : values.address.city}
               name="address.city"
-              error={!edit && !!touched.address?.city && !!errors.address?.city}
-              helperText={
-                !edit && touched.address?.city && errors.address?.city
-              }
+              onChange={handleChange}
               sx={{ gridColumn: "span 2" }}
+              error={!!touched.address?.city && !!errors.address?.city}
+              helperText={touched.address?.city && errors.address?.city}
+              value={values.address.city}
             />
           </Box>
+
           <Box display="flex" justifyContent="end" mt="20px">
             <Button
               type="submit"

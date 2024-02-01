@@ -1,7 +1,6 @@
 {
   "users": [
     {
-      "id": "c085",
       "firstName": "Atif",
       "lastName": "Razzaq",
       "email": "test@test.com",
@@ -10,11 +9,11 @@
         "area": "Noor Colony",
         "city": "Bahawalpur"
       },
-      "age": 23,
-      "zip": 63100
+      "age": 25,
+      "zip": 63100,
+      "id": "c085"
     },
     {
-      "id": "8453",
       "firstName": "M.",
       "lastName": "Mudassir",
       "email": "demo@gmail.com",
@@ -25,8 +24,7 @@
       },
       "age": "25",
       "zip": "65321",
-      "address.area": "fulladdres",
-      "address.city": "cit"
+      "id": "8453"
     },
     {
       "id": "baf1",
@@ -38,34 +36,73 @@
         "area": "Colony",
         "city": "Layyah"
       },
-      "age": 30,
+      "age": "23",
       "zip": 12345
     },
     {
       "id": "abec",
-      "firstName": "Muhammad",
-      "lastName": "Ibrahim",
+      "firstName": "M.",
+      "lastName": "Abbad",
       "email": "meon@mydomain.com",
       "contact": "(123) 456-0987",
       "address": {
         "area": "Sunflower",
         "city": "Lahore"
       },
-      "age": "28",
+      "age": "25",
       "zip": "98381"
     },
     {
-      "id": "8265",
-      "firstName": "Muhammad",
-      "lastName": "Abbad",
-      "email": "moon@mydomain.com",
-      "contact": "(123) 456-7887348",
+      "id": "79e5",
+      "firstName": "Awais",
+      "lastName": "Azhar",
+      "email": "awais@gmail.com",
+      "contact": "(123) 456-0987",
       "address": {
-        "area": "Society",
-        "city": "Bahawalpur"
+        "area": "Bahria Town",
+        "city": "Lahore"
       },
-      "age": "24",
-      "zip": "43654"
+      "age": "23",
+      "zip": 53001
+    },
+    {
+      "id": "4218",
+      "firstName": "first",
+      "lastName": "last",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "fulladdress",
+        "city": "city"
+      },
+      "age": 30,
+      "zip": 12345
+    },
+    {
+      "id": "bfac",
+      "firstName": "first name",
+      "lastName": "last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "fulladdress",
+        "city": "city"
+      },
+      "age": 30,
+      "zip": 12345
+    },
+    {
+      "id": "e0c8",
+      "firstName": "first name",
+      "lastName": "last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "fulladdress",
+        "city": "city"
+      },
+      "age": 30,
+      "zip": 12345
     }
   ]
 }

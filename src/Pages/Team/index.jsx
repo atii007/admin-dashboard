@@ -10,6 +10,7 @@ import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
 import FormHandling from "../../components/Form";
+import { toast } from "react-toastify";
 
 const Team = () => {
   const [formData, setFormData] = useState([]);
@@ -29,6 +30,7 @@ const Team = () => {
         .delete(`http://localhost:3000/users/${userId}`, { data: data })
         .then(() => getData());
     }
+    toast.error("User Data Deleted");
   };
 
   const handleEdit = async (userId) => {
@@ -40,11 +42,11 @@ const Team = () => {
     setEdit(true);
     setId(userId);
   };
-  // console.log("Form Data", formData);
 
   useEffect(() => {
+    // console.log("Team Component Rendered");
     getData();
-  }, [data]);
+  }, [modalOpen]);
 
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -160,7 +162,6 @@ const Team = () => {
         >
           <FormHandling
             setModalOpen={setModalOpen}
-            setFormData={setFormData}
             formData={formData}
             edit={edit}
             id={id}

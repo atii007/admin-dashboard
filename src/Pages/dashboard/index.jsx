@@ -18,6 +18,8 @@ import BarCharts from "../../components/BarChart";
 import SimpleLineChart from "../../components/LineChart";
 import GeographyCharts from "../../components/GeographyChart";
 
+import StatBoxContainer from "../../components/StatBoxContainer";
+
 const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
@@ -55,12 +57,9 @@ const Dashboard = () => {
         gap="20px"
       >
         {/* Row 1 */}
-        <Box
+        <StatBoxContainer
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
         >
           <StatBox
             title="12,361"
@@ -73,13 +72,11 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
+        </StatBoxContainer>
+
+        <StatBoxContainer
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
         >
           <StatBox
             title="331,225"
@@ -92,13 +89,11 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
+        </StatBoxContainer>
+
+        <StatBoxContainer
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
         >
           <StatBox
             title="231,121"
@@ -111,13 +106,11 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
-        <Box
+        </StatBoxContainer>
+
+        <StatBoxContainer
           gridColumn="span 3"
           backgroundColor={colors.primary[400]}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
         >
           <StatBox
             title="1,234,123"
@@ -130,7 +123,7 @@ const Dashboard = () => {
               />
             }
           />
-        </Box>
+        </StatBoxContainer>
         {/* Row 2 */}
         <Box
           gridColumn="span 8"
@@ -230,7 +223,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow=" span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          p="20px"
         >
           <Typography variant="h5" fontWeight="600">
             Campaign
@@ -257,7 +250,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow=" span 2"
           backgroundColor={colors.primary[400]}
-          p="30px"
+          sx={{ p: "20px 0px 0 0px" }}
         >
           <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
             Sales Quantity
@@ -275,7 +268,7 @@ const Dashboard = () => {
           <Typography
             variant="h5"
             fontWeight="600"
-            sx={{ p: "30px 30px 0 30px" }}
+            sx={{ p: "20px 20px 0 20px" }}
           >
             Geography Based Traffic
           </Typography>
