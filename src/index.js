@@ -10,6 +10,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <App />
-    <ToastContainer pauseOnFocusLoss={false} autoClose={3000} />
+    <ToastContainer pauseOnFocusLoss autoClose={3000} />
   </BrowserRouter>
 );

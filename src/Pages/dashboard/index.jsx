@@ -250,7 +250,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow=" span 2"
           backgroundColor={colors.primary[400]}
-          sx={{ p: "20px 0px 0 15px" }}
+          sx={{ p: "20px 0px 0 20px" }}
         >
           <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
             Sales Quantity

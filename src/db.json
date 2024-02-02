@@ -27,33 +27,6 @@
       "id": "8453"
     },
     {
-      "id": "baf1",
-      "firstName": "M.",
-      "lastName": "Amir",
-      "email": "me@mydomain.com",
-      "contact": "(123) 456-7890",
-      "address": {
-        "area": "Colony",
-        "city": "Layyah"
-      },
-      "age": "23",
-      "zip": 12345
-    },
-    {
-      "id": "abec",
-      "firstName": "M.",
-      "lastName": "Abbad",
-      "email": "meon@mydomain.com",
-      "contact": "(123) 456-0987",
-      "address": {
-        "area": "Sunflower",
-        "city": "Lahore"
-      },
-      "age": "25",
-      "zip": "98381"
-    },
-    {
-      "id": "79e5",
       "firstName": "Awais",
       "lastName": "Azhar",
       "email": "awais@gmail.com",
@@ -62,11 +35,12 @@
         "area": "Bahria Town",
         "city": "Lahore"
       },
-      "age": "23",
-      "zip": 53001
+      "age": 27,
+      "zip": 53001,
+      "id": "79e5"
     },
     {
-      "firstName": "Muhammad",
+      "firstName": "M.",
       "lastName": "Abbas",
       "email": "abbas@mydomain.com",
       "contact": "(123) 654 0987",
@@ -103,6 +77,32 @@
       "age": 25,
       "zip": 53001,
       "id": "e0c8"
+    },
+    {
+      "id": "76d4",
+      "firstName": "Muhammad",
+      "lastName": "Amir",
+      "email": "amir@gmail.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "Noor Colony",
+        "city": "Bahawalpur"
+      },
+      "age": 32,
+      "zip": 53001
+    },
+    {
+      "firstName": "first name",
+      "lastName": "last name",
+      "email": "me@mydomain.com",
+      "contact": "(123) 456-7890",
+      "address": {
+        "area": "fulladdress",
+        "city": "city"
+      },
+      "age": 30,
+      "zip": 12367,
+      "id": "12d3"
     }
   ]
 }

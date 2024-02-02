@@ -33,7 +33,7 @@ const Team = () => {
   };
 
   const handleEdit = async (userId) => {
-    await axios
+    axios
       .get(`http://localhost:3000/users/${userId}`)
       .then((res) => setFormData(res.data));
 
@@ -43,7 +43,6 @@ const Team = () => {
   };
 
   useEffect(() => {
-    // console.log("Team Component Rendered");
     getData();
   }, [modalOpen]);
 

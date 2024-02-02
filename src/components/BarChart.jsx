@@ -11,15 +11,9 @@ const BarCharts = ({ isDashboard = false }) => {
 
   const chartSetting = {
     legend: isDashboard ? { hidden: true } : undefined,
-    yAxis: !isDashboard
-      ? [
-          {
-            label: "Approx. Selling (/day)",
-          },
-        ]
-      : undefined,
-    width: isDashboard ? 350 : 1000,
-    height: isDashboard ? 250 : 450,
+
+    width: isDashboard ? 320 : 1060,
+    height: isDashboard ? 240 : 445,
 
     sx: {
       [`.${axisClasses.label}`]: {

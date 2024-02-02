@@ -3,9 +3,9 @@ import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 
 import axios from "axios";
-
 import { tokens } from "../../theme";
 import Header from "../../components/Header";
+import { toast } from "react-toastify";
 
 const Contacts = () => {
   const [myData, setMyData] = useState([]);

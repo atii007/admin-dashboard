@@ -70,8 +70,8 @@ const FormHandling = ({ setModalOpen, edit, id, formData }) => {
         area: formData?.address?.area ?? "",
         city: formData?.address?.city ?? "",
       } || {},
-    age: formData?.age ?? null,
-    zip: formData?.zip ?? null,
+    age: formData?.age ?? "",
+    zip: formData?.zip ?? "",
   };
 
   const navigate = useNavigate();

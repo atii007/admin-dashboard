@@ -14,6 +14,7 @@ const SimpleLineChart = ({ isDashboard = false }) => {
       height={isDashboard ? 250 : 450}
       series={yLabels.map((item, index) => {
         return {
+          curve: "monotoneY",
           data: item,
           label: isDashboard ? undefined : id[index],
           color: colors[index],
