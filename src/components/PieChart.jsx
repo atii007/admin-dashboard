@@ -11,12 +11,9 @@ const getArcLabel = (params) => {
   return `${(percent * 100).toFixed(0)}%`;
 };
 
-const PieCharts = ({ isDashboard = false }) => {
+const PieCharts = () => {
   const sizing = {
-    margin: { right: 5 },
-    width: 1000,
-    height: 400,
-    legend: isDashboard ? { hidden: true } : undefined,
+    padding: { top: 5 },
   };
 
   return (

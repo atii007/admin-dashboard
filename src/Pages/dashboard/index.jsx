@@ -161,7 +161,7 @@ const Dashboard = () => {
               </IconButton>
             </Box>
           </Box>
-          <Box height="250px" mt="-30px" ml="-20px">
+          <Box height="250px" mt="-30px">
             <SimpleLineChart isDashboard={true} />
           </Box>
         </Box>
@@ -250,7 +250,7 @@ const Dashboard = () => {
           gridColumn="span 4"
           gridRow=" span 2"
           backgroundColor={colors.primary[400]}
-          sx={{ p: "20px 0px 0 0px" }}
+          sx={{ p: "20px 0px 0 15px" }}
         >
           <Typography variant="h5" fontWeight="600" sx={{ mb: "15px" }}>
             Sales Quantity

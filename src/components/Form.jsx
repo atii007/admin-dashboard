@@ -65,10 +65,11 @@ const FormHandling = ({ setModalOpen, edit, id, formData }) => {
     lastName: formData?.lastName ?? "",
     email: formData?.email ?? "",
     contact: formData?.contact ?? "",
-    address: {
-      area: formData.address?.area ?? "",
-      city: formData.address?.city ?? "",
-    },
+    address:
+      {
+        area: formData?.address?.area ?? "",
+        city: formData?.address?.city ?? "",
+      } || {},
     age: formData?.age ?? null,
     zip: formData?.zip ?? null,
   };

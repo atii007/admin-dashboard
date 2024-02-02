@@ -18,7 +18,6 @@ const Team = () => {
   const [id, setId] = useState();
   const [data, setData] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
-  // const navigate = useNavigate();
 
   const getData = () => {
     axios.get("http://localhost:3000/users").then((res) => setData(res.data));

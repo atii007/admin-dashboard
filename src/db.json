@@ -19,8 +19,8 @@
       "email": "demo@gmail.com",
       "contact": "(123) 456-7890",
       "address": {
-        "area": "fulladdress",
-        "city": "city"
+        "area": "Bahria Town",
+        "city": "Islamabad"
       },
       "age": "25",
       "zip": "65321",
@@ -66,43 +66,43 @@
       "zip": 53001
     },
     {
-      "id": "4218",
-      "firstName": "first",
-      "lastName": "last",
-      "email": "me@mydomain.com",
-      "contact": "(123) 456-7890",
+      "firstName": "Muhammad",
+      "lastName": "Abbas",
+      "email": "abbas@mydomain.com",
+      "contact": "(123) 654 0987",
       "address": {
-        "area": "fulladdress",
-        "city": "city"
+        "area": "DHA",
+        "city": "Karachi"
       },
-      "age": 30,
-      "zip": 12345
+      "age": 24,
+      "zip": 98001,
+      "id": "4218"
     },
     {
-      "id": "bfac",
-      "firstName": "first name",
-      "lastName": "last name",
-      "email": "me@mydomain.com",
-      "contact": "(123) 456-7890",
+      "firstName": "Muhammad",
+      "lastName": "Shan",
+      "email": "Shan@mydomain.com",
+      "contact": "(123) 456-4590",
       "address": {
-        "area": "fulladdress",
-        "city": "city"
+        "area": "Bahria Town",
+        "city": "Karachi"
       },
-      "age": 30,
-      "zip": 12345
+      "age": 32,
+      "zip": 53621,
+      "id": "bfac"
     },
     {
-      "id": "e0c8",
-      "firstName": "first name",
-      "lastName": "last name",
-      "email": "me@mydomain.com",
-      "contact": "(123) 456-7890",
+      "firstName": "Muhammad",
+      "lastName": "Awais",
+      "email": "awais@mydomain.com",
+      "contact": "(123) 789 3465",
       "address": {
-        "area": "fulladdress",
-        "city": "city"
+        "area": "Bahria Town",
+        "city": "Lahore"
       },
-      "age": 30,
-      "zip": 12345
+      "age": 25,
+      "zip": 53001,
+      "id": "e0c8"
     }
   ]
 }

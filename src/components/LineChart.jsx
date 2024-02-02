@@ -10,10 +10,14 @@ const colors = mockLineData.map((item) => item.color);
 const SimpleLineChart = ({ isDashboard = false }) => {
   return (
     <LineChart
-      width={isDashboard ? 700 : 950}
-      height={isDashboard ? 250 : 400}
+      width={isDashboard ? 700 : 1050}
+      height={isDashboard ? 250 : 450}
       series={yLabels.map((item, index) => {
-        return { data: item, label: id[index], color: colors[index] };
+        return {
+          data: item,
+          label: isDashboard ? undefined : id[index],
+          color: colors[index],
+        };
       })}
       xAxis={[{ scaleType: "point", data: xLabels[0] }]}
     />

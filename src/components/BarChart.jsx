@@ -20,6 +20,7 @@ const BarCharts = ({ isDashboard = false }) => {
       : undefined,
     width: isDashboard ? 350 : 1000,
     height: isDashboard ? 250 : 450,
+
     sx: {
       [`.${axisClasses.label}`]: {
         transform: "translate(-10px, 0)",
