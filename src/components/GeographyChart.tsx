@@ -5,7 +5,11 @@ import { tokens } from "../theme";
 import { mockGeographyData as data } from "../data/mockData";
 import { geoFeatures } from "../data/mockGeoFeatures";
 
-const GeographyCharts = ({ isDashboard = false }) => {
+type GeographyChartsPropsType = {
+  isDashboard?: boolean;
+};
+
+const GeographyCharts = ({ isDashboard = false }: GeographyChartsPropsType) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 

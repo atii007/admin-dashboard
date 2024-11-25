@@ -5,7 +5,11 @@ import { axisClasses } from "@mui/x-charts";
 import { mockBarData } from "../data/mockData";
 import { tokens } from "../theme";
 
-const BarCharts = ({ isDashboard = false }) => {
+type BarChartPropsType = {
+  isDashboard?: boolean;
+};
+
+const BarCharts = ({ isDashboard = false }: BarChartPropsType) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 
@@ -25,9 +29,7 @@ const BarCharts = ({ isDashboard = false }) => {
   return (
     <BarChart
       dataset={mockBarData}
-      xAxis={[
-        { scaleType: "band", dataKey: "country", color: colors.grey[100] },
-      ]}
+      xAxis={[{ scaleType: "band", dataKey: "country" }]}
       series={[
         {
           dataKey: "burger",

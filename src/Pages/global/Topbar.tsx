@@ -17,9 +17,11 @@ const Topbar = () => {
   return (
     <Box display="flex" justifyContent="space-between" p={2}>
       <Box
-        display="flex"
-        backgroundColor={colors.primary[400]}
-        borderRadius="3px"
+        sx={{
+          display: "flex",
+          backgroundColor: colors.primary[400],
+          borderRadius: "3px",
+        }}
       >
         <InputBase sx={{ ml: 2, flex: 1 }} placeholder="Search" />
         <IconButton type="button" sx={{ p: 1 }}>

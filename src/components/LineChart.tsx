@@ -2,12 +2,16 @@ import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import { mockLineData } from "../data/mockData";
 
+type LineChartPropsType = {
+  isDashboard?: boolean;
+};
+
 const xLabels = mockLineData.map((item) => item.data.map((axis) => axis.x));
 const yLabels = mockLineData.map((item) => item.data.map((axis) => axis.y));
 const id = mockLineData.map((item) => item.id);
 const colors = mockLineData.map((item) => item.color);
 
-const SimpleLineChart = ({ isDashboard = false }) => {
+const SimpleLineChart = ({ isDashboard = false }: LineChartPropsType) => {
   return (
     <LineChart
       width={isDashboard ? 700 : 1050}

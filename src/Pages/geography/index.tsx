@@ -1,11 +1,13 @@
-import React from "react";
 import { Box, useTheme } from "@mui/material";
-
-import Header from "../../components/Header";
-import GeographyCharts from "../../components/GeographyChart";
 import { tokens } from "../../theme";
+import Header from "components/Header";
+import GeographyCharts from "components/GeographyChart";
 
-const Geo = ({ isDashboard = false }) => {
+type GeoPropsType = {
+  isDashboard?: boolean;
+};
+
+const Geo = ({ isDashboard = false }: GeoPropsType) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
 

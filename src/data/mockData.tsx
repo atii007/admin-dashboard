@@ -1,6 +1,17 @@
+import type {
+  BarDataType,
+  ContactDataType,
+  FAQDataType,
+  GeographyDataType,
+  InvoiceDataType,
+  LineDataType,
+  PieDataType,
+  TeamDataType,
+  TransactionDataType,
+} from "../components/types/mockDataTypes";
 import { tokens } from "../theme";
 
-export const mockDataTeam = [
+export const mockDataTeam: TeamDataType[] = [
   {
     id: 1,
     name: "Jon Snow",
@@ -75,7 +86,7 @@ export const mockDataTeam = [
   },
 ];
 
-export const mockDataContacts = [
+export const mockDataContacts: ContactDataType[] = [
   {
     id: 1,
     name: "Jon Snow",
@@ -199,7 +210,7 @@ export const mockDataContacts = [
   },
 ];
 
-export const mockDataInvoices = [
+export const mockDataInvoices: InvoiceDataType[] = [
   {
     id: 1,
     name: "Jon Snow",
@@ -266,7 +277,7 @@ export const mockDataInvoices = [
   },
 ];
 
-export const mockTransactions = [
+export const mockTransactions: TransactionDataType[] = [
   {
     txId: "01e4dsa",
     user: "johndoe",
@@ -317,7 +328,7 @@ export const mockTransactions = [
   },
 ];
 
-export const mockBarData = [
+export const mockBarData: BarDataType[] = [
   {
     country: "AD",
     "hot dog": 137,
@@ -397,7 +408,7 @@ export const mockBarData = [
   },
 ];
 
-export const mockPieData = [
+export const mockPieData: PieDataType[] = [
   {
     id: "hack",
     label: "hack",
@@ -430,7 +441,7 @@ export const mockPieData = [
   },
 ];
 
-export const mockLineData = [
+export const mockLineData: LineDataType[] = [
   {
     id: "Japan",
     color: tokens("dark").greenAccent[500],
@@ -595,7 +606,7 @@ export const mockLineData = [
   },
 ];
 
-export const mockGeographyData = [
+export const mockGeographyData: GeographyDataType[] = [
   {
     id: "AFG",
     value: 520600,
@@ -1279,5 +1290,44 @@ export const mockGeographyData = [
   {
     id: "KOR",
     value: 171135,
+  },
+];
+
+export const mockDataFAQ: FAQDataType[] = [
+  {
+    id: 1,
+    title: "Question # 01",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
+  },
+  {
+    id: 2,
+    title: "Question # 02",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
+  },
+  {
+    id: 3,
+    title: "Question # 03",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
+  },
+  {
+    id: 4,
+    title: "Question # 04",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
+  },
+  {
+    id: 5,
+    title: "Question # 05",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
+  },
+  {
+    id: 6,
+    title: "Question # 06",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio nesciunt corporis distinctio minima in necessitatibus nemo officia, labore tempore laboriosam commodi vero animi ipsa facere iste facilis error nam magni qui, sint obcaecati, blanditiis optio.",
   },
 ];

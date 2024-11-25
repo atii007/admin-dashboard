@@ -1,12 +1,16 @@
 import React from "react";
-import { PieChart, pieArcLabelClasses } from "@mui/x-charts";
+import {
+  DefaultizedPieValueType,
+  PieChart,
+  pieArcLabelClasses,
+} from "@mui/x-charts";
 import { mockPieData } from "../data/mockData";
 
 const data = mockPieData;
 
 const TOTAL = data.map((item) => item.value).reduce((a, b) => a + b, 0);
 
-const getArcLabel = (params) => {
+const getArcLabel = (params: DefaultizedPieValueType) => {
   const percent = params.value / TOTAL;
   return `${(percent * 100).toFixed(0)}%`;
 };

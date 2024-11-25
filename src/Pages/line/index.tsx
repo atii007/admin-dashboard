@@ -1,9 +1,12 @@
-import React from "react";
+import Header from "components/Header";
+import SimpleLineChart from "components/LineChart";
 import { Box } from "@mui/material";
-import SimpleLineChart from "../../components/LineChart";
-import Header from "../../components/Header";
 
-const Line = ({ isDashboard = false }) => {
+type LinePropsType = {
+  isDashboard?: boolean;
+};
+
+const Line = ({ isDashboard = false }: LinePropsType) => {
   return (
     <Box m="20px">
       <Header title="Line Chart" subtitle="Simple Line Chart showing stats" />

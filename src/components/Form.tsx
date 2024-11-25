@@ -4,12 +4,17 @@ import axios from "axios";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { Formik } from "formik";
 import { Box, Button, TextField } from "@mui/material";
-
 import * as Yup from "yup";
-
 import { toast } from "react-toastify";
+import { Fields, InitialValuesType } from "./types/teamForm";
+import { useStoreContext } from "../store/store";
 
-const fields = [
+type FormHandlingPropsType = {
+  id?: string;
+  formData?: InitialValuesType | undefined;
+};
+
+const fields: Fields[] = [
   {
     name: "firstName",
     type: "text",
@@ -59,17 +64,18 @@ const userSchema = Yup.object().shape({
   zip: Yup.number().required("Required"),
 });
 
-const FormHandling = ({ setModalOpen, edit, id, formData }) => {
-  const initialFormData = {
+const FormHandling = ({ id, formData }: FormHandlingPropsType) => {
+  const { edit, setModalOpen } = useStoreContext();
+
+  const initialFormData: InitialValuesType = {
     firstName: formData?.firstName ?? "",
     lastName: formData?.lastName ?? "",
     email: formData?.email ?? "",
     contact: formData?.contact ?? "",
-    address:
-      {
-        area: formData?.address?.area ?? "",
-        city: formData?.address?.city ?? "",
-      } || {},
+    address: {
+      area: formData?.address?.area ?? "",
+      city: formData?.address?.city ?? "",
+    },
     age: formData?.age ?? "",
     zip: formData?.zip ?? "",
   };
@@ -77,7 +83,7 @@ const FormHandling = ({ setModalOpen, edit, id, formData }) => {
   const navigate = useNavigate();
   const isNonMobile = useMediaQuery("(min-width:600px)");
 
-  const handleFormSubmit = (values) => {
+  const handleFormSubmit = (values: InitialValuesType) => {
     if (edit) {
       axios
         .put(`http://localhost:3000/users/${id}`, values)
@@ -123,20 +129,24 @@ const FormHandling = ({ setModalOpen, edit, id, formData }) => {
               },
             }}
           >
-            {fields.map((fieldData) => (
+            {fields.map(({ name, type, label }) => (
               <TextField
-                key={fieldData.name}
+                key={name}
                 fullWidth
-                type={fieldData.type}
+                type={type}
                 variant="filled"
-                label={fieldData.label}
+                label={label}
                 onBlur={handleBlur}
-                name={fieldData.name}
+                name={name}
                 onChange={handleChange}
                 sx={{ gridColumn: "span 2" }}
-                error={!!touched[fieldData.name] && !!errors[fieldData.name]}
-                helperText={touched[fieldData.name] && errors[fieldData.name]}
-                value={values[fieldData.name]}
+                error={!!touched[name] && !!errors[name]}
+                helperText={
+                  touched[name] && typeof errors[name] === "string"
+                    ? errors[name]
+                    : ""
+                }
+                value={values[name]}
               />
             ))}
 

@@ -1,29 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { Box, useTheme, Button, Modal } from "@mui/material";
-import { DataGrid } from "@mui/x-data-grid";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import { tokens } from "../../theme";
-import Header from "../../components/Header";
 import axios from "axios";
 import EditOutlinedIcon from "@mui/icons-material/EditOutlined";
 import PersonIcon from "@mui/icons-material/Person";
 import { Link } from "react-router-dom";
-import FormHandling from "../../components/Form";
 import { toast } from "react-toastify";
+import { useStoreContext } from "../../store/store";
+import { InitialValuesType } from "components/types/teamForm";
+import Header from "components/Header";
+import FormHandling from "components/Form";
 
 const Team = () => {
-  const [formData, setFormData] = useState([]);
-  const [edit, setEdit] = useState(false);
-  const [id, setId] = useState();
-  const [data, setData] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState<InitialValuesType>();
+  const [id, setId] = useState<string>("");
+  const [data, setData] = useState<InitialValuesType[]>([]);
+  const { modalOpen, setModalOpen, setEdit } = useStoreContext();
 
   const getData = () => {
     axios.get("http://localhost:3000/users").then((res) => setData(res.data));
   };
 
-  const handleDeletion = (userId) => {
+  const handleDeletion = (userId: string) => {
     if (userId) {
       axios
         .delete(`http://localhost:3000/users/${userId}`, { data: data })
@@ -32,7 +33,7 @@ const Team = () => {
     toast.error("User Data Deleted");
   };
 
-  const handleEdit = async (userId) => {
+  const handleEdit = async (userId: string) => {
     axios
       .get(`http://localhost:3000/users/${userId}`)
       .then((res) => setFormData(res.data));
@@ -59,7 +60,7 @@ const Team = () => {
     };
   });
 
-  const columns = [
+  const columns: GridColDef<(typeof rows)[number]>[] = [
     { field: "id", headerName: "ID" },
     {
       field: "name",
@@ -89,8 +90,8 @@ const Team = () => {
       headerName: "Manage",
       flex: 1,
       renderCell: (params) => {
-        const handleDeleteClick = () => handleDeletion(params.id);
-        const handleEditClick = () => handleEdit(params.id);
+        const handleDeleteClick = () => handleDeletion(`${params.id}`);
+        const handleEditClick = () => handleEdit(`${params.id}`);
         return (
           <Box display="flex" justifyContent="center" alignItems="center">
             <Box display="flex" justifyContent="center">
@@ -158,12 +159,7 @@ const Team = () => {
             boxShadow: `0 1px 2px 0 ${colors.blueAccent[600]}, 0 2px 7px 0 ${colors.blueAccent[600]}`,
           }}
         >
-          <FormHandling
-            setModalOpen={setModalOpen}
-            formData={formData}
-            edit={edit}
-            id={id}
-          />
+          <FormHandling formData={formData} id={id} />
         </Box>
       </Modal>
       <Box display="flex" justifyContent="space-between" alignItems="center">

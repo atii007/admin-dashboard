@@ -3,7 +3,6 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Routes, Route } from "react-router-dom";
 import Topbar from "./Pages/global/Topbar";
 import Sidebar from "./Pages/global/Sidebar";
-
 import Dashboard from "./Pages/dashboard";
 import Team from "./Pages/team";
 import Invoices from "./Pages/invoice";
@@ -16,7 +15,7 @@ import FAQ from "./Pages/faq";
 import Geography from "./Pages/geography";
 
 function App() {
-  const [theme, colorMode] = useMode();
+  const { theme, colorMode } = useMode();
   return (
     <ColorModeContext.Provider value={colorMode}>
       <ThemeProvider theme={theme}>

@@ -1,12 +1,18 @@
-import React from "react";
 import { Box } from "@mui/material";
 import Header from "../../components/Header";
 import BarCharts from "../../components/BarChart";
 
-const Bar = ({ isDashboard = false }) => {
+type BarPropsType = {
+  isDashboard?: boolean;
+};
+
+const Bar = ({ isDashboard = false }: BarPropsType) => {
   return (
     <Box m="20px">
-      <Header title="Bar Chart" subtitle="Simple Bar sChart showing stats" />
+      <Header
+        title="Food Consumption"
+        subtitle="Distribution of Popular Food Items in different Countries"
+      />
       <Box
         height="70vh"
         mt="20px"

@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { Box, useTheme, Typography, IconButton } from "@mui/material";
 import { menuClasses, sidebarClasses } from "react-pro-sidebar";
-
 import { tokens } from "../../theme";
 import { Menu, MenuItem, Sidebar as ProSidebar } from "react-pro-sidebar";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
-
 import SidebarLinks from "./SidebarLinks";
 
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
 
   return (
     <Box>
@@ -32,7 +30,7 @@ const Sidebar = () => {
           },
         }}
       >
-        <Menu iconShape="square">
+        <Menu>
           {/* LOGO AND MENU ICON */}
           <MenuItem
             onClick={() => setIsCollapsed(!isCollapsed)}
