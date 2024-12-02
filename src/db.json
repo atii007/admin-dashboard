@@ -64,6 +64,19 @@
       },
       "age": 32,
       "zip": 53001
+    },
+    {
+      "id": "9668",
+      "firstName": "Muhammad",
+      "lastName": "Haris",
+      "email": "haris@gmail.com",
+      "contact": "03051231231",
+      "address": {
+        "area": "Johar Town",
+        "city": "Lahore"
+      },
+      "age": 28,
+      "zip": 6300
     }
   ]
 }

@@ -1,5 +1,4 @@
-import React from "react";
-import { Box, useTheme, Typography } from "@mui/material";
+import { useTheme, Typography } from "@mui/material";
 import { MenuItem } from "react-pro-sidebar";
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
@@ -14,13 +13,13 @@ import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
 import TimelineOutlinedIcon from "@mui/icons-material/TimelineOutlined";
 import MapOutlinedIcon from "@mui/icons-material/MapOutlined";
 
-type Navlinks = {
+type NavlinksType = {
   title: string;
   to: string;
   icon: JSX.Element;
 };
 
-const Navlinks: Navlinks[] = [
+const Navlinks: NavlinksType[] = [
   { title: "Dashboard", to: "/", icon: <HomeOutlinedIcon /> },
   { title: "Manage Team", to: "/team", icon: <PeopleOutlinedIcon /> },
   {

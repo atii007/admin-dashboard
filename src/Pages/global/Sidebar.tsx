@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Box, useTheme, Typography, IconButton } from "@mui/material";
 import { menuClasses, sidebarClasses } from "react-pro-sidebar";
 import { tokens } from "../../theme";
@@ -10,7 +9,6 @@ import { useStoreContext } from "store/store";
 const Sidebar = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
-  // const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const { isCollapsed, setIsCollapsed } = useStoreContext();
 
   return (

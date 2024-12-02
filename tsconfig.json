@@ -10,10 +10,11 @@
     "module": "commonjs",
     "moduleResolution": "node",                     
     "resolveJsonModule": true,
-    "allowJs": true,                                  
+    "allowJs": false,                                  
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictNullChecks": true,
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
