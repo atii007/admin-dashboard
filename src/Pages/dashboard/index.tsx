@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "../../components/Header";
 import { Box, Button, IconButton, Typography, useTheme } from "@mui/material";
 
@@ -7,14 +6,14 @@ import EmailIcon from "@mui/icons-material/Email";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import TrafficIcon from "@mui/icons-material/Traffic";
-import StatBox from "../../components/StatBox";
 import { tokens } from "../../theme";
 import { mockTransactions } from "../../data/mockData";
-import ProgressCircle from "../../components/ProgressCircle";
-import BarCharts from "../../components/BarChart";
-import SimpleLineChart from "../../components/LineChart";
-import GeographyCharts from "../../components/GeographyChart";
-import StatBoxContainer from "../../components/StatBoxContainer";
+import StatBoxContainer from "components/StatBoxContainer";
+import StatBox from "components/StatBox";
+import SimpleLineChart from "components/LineChart";
+import ProgressCircle from "components/ProgressCircle";
+import BarCharts from "components/BarChart";
+import GeographyCharts from "components/GeographyChart";
 
 const Dashboard = () => {
   const theme = useTheme();

@@ -3,10 +3,10 @@ import { Box, Typography, useTheme } from "@mui/material";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Header from "../../components/Header";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { tokens } from "../../theme";
 import { mockDataFAQ } from "../../data/mockData";
+import Header from "components/Header";
 
 const FAQ = () => {
   const theme = useTheme();

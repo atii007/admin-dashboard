@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, useTheme } from "@mui/material";
 import { DataGrid, GridColDef, GridToolbar } from "@mui/x-data-grid";
 
 import axios from "axios";
 import { tokens } from "../../theme";
-import Header from "../../components/Header";
-import { InitialValuesType } from "../../components/types/teamForm";
+import { InitialValuesType } from "components/types/teamForm";
+import Header from "components/Header";
 
 const Contacts = () => {
-  const [myData, setMyData] = useState<InitialValuesType[]>([]);
+  const [myData, setMyData] = React.useState<InitialValuesType[]>([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     axios.get("http://localhost:3000/users").then((res) => setMyData(res.data));
   }, []);
 

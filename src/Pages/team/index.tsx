@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, useTheme, Button, Modal } from "@mui/material";
 import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
@@ -15,9 +15,9 @@ import Header from "components/Header";
 import FormHandling from "components/Form";
 
 const Team = () => {
-  const [formData, setFormData] = useState<InitialValuesType>();
-  const [id, setId] = useState<string>("");
-  const [data, setData] = useState<InitialValuesType[]>([]);
+  const [formData, setFormData] = React.useState<InitialValuesType>();
+  const [id, setId] = React.useState<string>("");
+  const [data, setData] = React.useState<InitialValuesType[]>([]);
   const { modalOpen, setModalOpen, setEdit } = useStoreContext();
 
   const getData = () => {
@@ -43,7 +43,7 @@ const Team = () => {
     setId(userId);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     getData();
   }, [modalOpen]);
 

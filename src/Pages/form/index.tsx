@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
-import Header from "../../components/Header";
-import FormHandling from "../../components/Form";
+import FormHandling from "components/Form";
+import Header from "components/Header";
 
 const Form = () => {
   return (
