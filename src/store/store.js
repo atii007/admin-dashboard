@@ -9,4 +9,7 @@ export const useStoreContext = create((set) => ({
 
   edit: false,
   setEdit: (value) => set({ edit: value }),
+
+  isCollapsed: false,
+  setIsCollapsed: (value) => set({ isCollapsed: value }),
 }));

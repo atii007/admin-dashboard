@@ -47,7 +47,7 @@ const SidebarLinks = () => {
   const colors = tokens(theme.palette.mode);
 
   return (
-    <Box>
+    <>
       {Navlinks.map((links) => (
         <MenuItem
           key={links.title}
@@ -61,7 +61,7 @@ const SidebarLinks = () => {
           <Typography>{links.title}</Typography>
         </MenuItem>
       ))}
-    </Box>
+    </>
   );
 };
 

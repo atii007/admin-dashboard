@@ -19,7 +19,7 @@ const Geo = ({ isDashboard = false }: GeoPropsType) => {
       />
 
       <Box
-        height="70vh"
+        height="60vh"
         border={`1px solid ${colors.grey[100]}`}
         borderRadius="4px"
         mt="20px"
